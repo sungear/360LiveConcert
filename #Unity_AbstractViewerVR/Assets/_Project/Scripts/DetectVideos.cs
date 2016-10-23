@@ -9,12 +9,12 @@ public class DetectVideos : MonoBehaviour {
     
     public float detectionTime = 1.0f;
     
-    public Queue<string> videoStages;
+    public List<string> videoStages;
     [SerializeField]
     private string[] createdVideos;
     public string path;
     void Awake () {
-        videoStages = new Queue<string>();
+    videoStages = new List<string>();
 
         path = Application.dataPath;
         string directoryName = "Videos";
@@ -35,11 +35,6 @@ public class DetectVideos : MonoBehaviour {
         InvokeRepeating("detectNewVideo", 0f, detectionTime);
     }
 
-    private void detectNewFile(string arg0)
-    {        
-        print(arg0);
-    }
-
     private void detectNewVideo()
     {
         createdVideos = Directory.GetFiles(path);
@@ -50,8 +45,7 @@ public class DetectVideos : MonoBehaviour {
                 string file = createdVideos[i];
                 if (!videoStages.Contains(file))
                 {
-                    videoStages.Enqueue(createdVideos[i]);
-                    break;
+                    videoStages.Add(createdVideos[i]);
                 }
             }
         }
