@@ -241,11 +241,11 @@ public class MediaPlayerCtrl : MonoBehaviour
 
 		}
 
-		
-		
+
+
 #endif
 
-
+        
 
 
 
@@ -1979,13 +1979,13 @@ public class MediaPlayerCtrl : MonoBehaviour
 
 		if( strFileName.Contains("://") == false)
 		{
-			strFileName = Application.streamingAssetsPath + "/" + strFileName;
-			Debug.Log(strFileName);
+            strFileName = Application.streamingAssetsPath + "/" + strFileName;
+            Debug.Log(strFileName);
 		}
 		else if( strFileName.Contains("file://") == true)
 		{
 			strFileName = strFileName.Replace("file://", "");
-		}
+        }
 
 
 		loader = new Thread ( () => {
